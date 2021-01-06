@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90962652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0715, y: -0.121, z: 0}
-  m_LocalScale: {x: 0.18165939, y: 0.19879365, z: 0.27798757}
+  m_LocalPosition: {x: -0.0231, y: -0.0734, z: 0}
+  m_LocalScale: {x: 0.24750547, y: 0.2708504, z: 0.37874973}
   m_Children:
   - {fileID: 1315640466}
   m_Father: {fileID: 4952967056769445109}
@@ -351,7 +351,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06457305, y: -0.10375339}
+  m_Offset: {x: -0.024678066, y: -0.0706325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -362,7 +362,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2951913, y: 0.25111234}
+  m_Size: {x: 0.37498125, y: 0.33722675}
   m_EdgeRadius: 0
 --- !u!50 &4952967056769445113
 Rigidbody2D:
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b7252bcacb3204794970825d095a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
   speed: 10
   timebetweenAttack: 3
   Deatheffect: {fileID: 6273729970665980837, guid: 3d934185a99187d448b942e9c594a376,

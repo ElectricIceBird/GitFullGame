@@ -685,9 +685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d2ebf6ad78bbd4a90a079b27734651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 3
   speed: 4
-  timebetweenAttack: 8
+  timebetweenAttack: 15
   Deatheffect: {fileID: 6273729970665980837, guid: 3d934185a99187d448b942e9c594a376,
     type: 3}
   player: {fileID: 0}
