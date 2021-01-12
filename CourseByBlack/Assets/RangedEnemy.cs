@@ -37,7 +37,7 @@ public class RangedEnemy : Enemy
     {
           Vector2 direction = player.position - shotpoint.position;
      float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-     Quaternion rotation = Quaternion.AngleAxis(angle ,Vector3.forward);
+     Quaternion rotation = Quaternion.AngleAxis(angle - 90f,Vector3.forward);
      shotpoint.rotation = rotation;
      Instantiate(Bullet,shotpoint.position,shotpoint.rotation);
     }
