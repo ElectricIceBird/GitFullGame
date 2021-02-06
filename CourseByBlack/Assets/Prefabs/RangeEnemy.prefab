@@ -617,6 +617,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   speed: 7
+  pickupChance: 30
+  healthpickupChance: 65
+  healthPickup: {fileID: 3883877650392968803, guid: 7ae783712491a624eaf31d42a52b7b3b,
+    type: 3}
+  WeaponPick:
+  - {fileID: 3210741863773666406, guid: b463e259d32426e459466a98b2056c42, type: 3}
+  - {fileID: 2470917549274271879, guid: e3ebde1512cc38a4fbd81b3199c4850f, type: 3}
   timebetweenAttack: 2
   Deatheffect: {fileID: 6273729970665980837, guid: 3d934185a99187d448b942e9c594a376,
     type: 3}
