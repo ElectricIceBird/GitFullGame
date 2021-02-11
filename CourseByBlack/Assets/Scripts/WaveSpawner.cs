@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
    private int currentwaveIndex;
    private Transform player;
    private bool finsedSpawning;
+    public GameObject boss;
+    public Transform bossspawnposistion;
   
    void Start()
    {
@@ -41,7 +43,7 @@ public class WaveSpawner : MonoBehaviour
           Enemy randomEnemy = currentwave.enemies[Random.Range(0,currentwave.enemies.Length)];
           Transform randomSpot = spawnPoints[Random.Range(0,spawnPoints.Length)];
           Instantiate(randomEnemy,randomSpot.position,randomSpot.rotation);
-          yield return new WaitForSeconds(currentwave.timebtwSpawn);
+         
           if(i == currentwave.count - 1)
           {
               finsedSpawning = true;
@@ -50,18 +52,27 @@ public class WaveSpawner : MonoBehaviour
           {
               finsedSpawning = false;
           }
-          if(finsedSpawning == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 0 )
-          {
-              finsedSpawning = false;
-          }
-          if(currentwaveIndex + 1 < waves.Length)
-          {
-              currentwaveIndex++;
-              StartCoroutine(StartNextWave(currentwaveIndex));
-          }else
-          {
-              Debug.Log(("Done"));
-          }
-      }
-   }
+         
+          
+            yield return new WaitForSeconds(currentwave.timebtwSpawn);
+        }
+
+        }
+    void Update()
+    {
+        if (finsedSpawning == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            finsedSpawning = false;
+            if (currentwaveIndex + 1 < waves.Length)
+            {
+                currentwaveIndex++;
+                StartCoroutine(StartNextWave(currentwaveIndex));
+            }
+            else
+            {
+                Instantiate(boss, transform.position, transform.rotation);
+            }
+        }
+    }
+
 }

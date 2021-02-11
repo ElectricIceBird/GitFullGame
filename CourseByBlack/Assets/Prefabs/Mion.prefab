@@ -410,6 +410,7 @@ MonoBehaviour:
   WeaponPick:
   - {fileID: 3210741863773666406, guid: b463e259d32426e459466a98b2056c42, type: 3}
   - {fileID: 3239000713098655025, guid: 07e93b9bdd87c1c4a9539dbeb3675640, type: 3}
+  - {fileID: 6676001994197101603, guid: 3a7c280b4d4845444943690107c85809, type: 3}
   timebetweenAttack: 2
   Deatheffect: {fileID: 6273729970665980837, guid: 3d934185a99187d448b942e9c594a376,
     type: 3}
