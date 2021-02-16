@@ -9,6 +9,8 @@ public class GridMovement : MonoBehaviour
     public GameObject player;
     public LayerMask walkStop;
     public GameObject secondPlayer;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,11 @@ public class GridMovement : MonoBehaviour
             secondPlayer.GetComponent<GridMovement>().enabled = true;
             player.GetComponent<GridMovement>().enabled = false;
         }
+      
+        
 
     }
-   
+    
+
+
 }
