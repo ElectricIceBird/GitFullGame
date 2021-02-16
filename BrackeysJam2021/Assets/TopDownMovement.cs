@@ -9,6 +9,7 @@ public class TopDownMovement : MonoBehaviour
     private Vector2 moveVelocity;
     public GameObject secondPlayer;
      public GameObject player;
+    public GameObject Combineform;
     
 
     void Start()
@@ -33,5 +34,20 @@ public class TopDownMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pad"))
+        {
+            player.GetComponent<SpriteRenderer>().enabled = false;
+
+            secondPlayer.GetComponent<TopDownMovement>().enabled = true;
+
+            player.GetComponent<TopDownMovement>().enabled = false;
+            
+
+
+
+        }
     }
 }
