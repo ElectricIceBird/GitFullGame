@@ -14,6 +14,7 @@ public class Move2D : MonoBehaviour
     private bool isFacingRight = true;
     public GameObject player;
     public GameObject player2;
+    public Animator anim;
 
 
     // Start is called before the first frame update
@@ -46,17 +47,22 @@ public class Move2D : MonoBehaviour
             jumpCount = jumpExtravalue;
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
-    { 
+    {
+            anim.SetTrigger("Jump");
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, Jumpfocre), ForceMode2D.Impulse);
             jumpCount--;
     }
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount == 0 && isGrounded == true)
         {
+            anim.SetTrigger("Jump");
+
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, Jumpfocre), ForceMode2D.Impulse);
             
         }
         if (Input.GetKeyDown(KeyCode.E)) 
         {
+            anim.SetTrigger("Jump");
+
             player.GetComponent<Move2D>().enabled = false;
             player2.GetComponent<Move2D>().enabled = true;
         }
