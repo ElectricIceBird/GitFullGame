@@ -16,6 +16,8 @@ public class Move2D : MonoBehaviour
     public GameObject player2;
     public Animator anim;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +63,7 @@ public class Move2D : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            anim.SetTrigger("Jump");
+            
 
             player.GetComponent<Move2D>().enabled = false;
             player2.GetComponent<Move2D>().enabled = true;
