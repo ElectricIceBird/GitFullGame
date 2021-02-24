@@ -21,7 +21,7 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),transform.position.y);
         moveVelocity = moveInput.normalized * speed;
         if (Input.GetKeyDown(KeyCode.Space))        
         {
