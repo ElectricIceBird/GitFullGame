@@ -9,12 +9,14 @@ public class Weapon : MonoBehaviour
     public float shotbtwTime;
     private float shotTime;
     private Animator anim;
+    private Animator Camanim;
+
     public float angletobeadded;
     public float rotationangle;
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+        Camanim = Camera.main.GetComponent<Animator>();
     }
  private void Update() {
      Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -33,6 +35,7 @@ public class Weapon : MonoBehaviour
 
          Instantiate(projectile,shotPosition.position,shotPosition.rotation);
          shotTime = Time.time + shotbtwTime;
+                Camanim.SetTrigger("shake");
      }
      }
  }

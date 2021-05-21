@@ -404,7 +404,7 @@ MonoBehaviour:
   health: 1
   speed: 8
   pickupChance: 5
-  healthpickupChance: 43
+  healthpickupChance: 13
   healthPickup: {fileID: 3883877650392968803, guid: 7ae783712491a624eaf31d42a52b7b3b,
     type: 3}
   WeaponPick:

@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     private Vector2 targerPosition;
     public float speed;
     public int damage;
+    public GameObject effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class EnemyBullet : MonoBehaviour
           transform.position = Vector2.MoveTowards(transform.position,targerPosition,speed * Time.deltaTime);
         }else
         {
+            Instantiate(effect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         
@@ -30,7 +32,10 @@ public class EnemyBullet : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D other) {
             if(other.CompareTag("Player"))
             {
+
                 playerScript.Takedamage(damage);
+            Instantiate(effect, transform.position, transform.rotation);
+
             Destroy(gameObject);
                 
             }

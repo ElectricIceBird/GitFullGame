@@ -182,6 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPickup: {fileID: 1443018308542009948, guid: edf79ed563b156f4c96bad36126a1394,
     type: 3}
+  pickupEffect: {fileID: 8783653221124327600, guid: e74aedf4e6d1f1c4fab7314e7ecb7601,
+    type: 3}
 --- !u!95 &3239000713098655029
 Animator:
   serializedVersion: 3
@@ -195,7 +197,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c6fb712c9b41d264c8a9d95e89021023, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

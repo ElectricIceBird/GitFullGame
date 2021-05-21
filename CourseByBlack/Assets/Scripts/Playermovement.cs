@@ -10,11 +10,13 @@ public class Playermovement : MonoBehaviour
     public Sprite emptygear;
     public Sprite fullgear;
 
-
+    public GameObject hitEffect;
     public float speed;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
     private Animator anim;
+    public Animator Panelanim;
+
     public int health;
     public GameObject Deatheffect;
     private void Start() {
@@ -37,7 +39,9 @@ public class Playermovement : MonoBehaviour
     }
     public void Takedamage(int damage)
  {
+        Instantiate(hitEffect, transform.position, transform.rotation);
   health -= damage;
+        Panelanim.SetTrigger("hurt");
   UpdateHealthUI(health);
         if (health <= 0)
   {

@@ -617,7 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   speed: 7
-  pickupChance: 30
+  pickupChance: 23
   healthpickupChance: 65
   healthPickup: {fileID: 3883877650392968803, guid: 7ae783712491a624eaf31d42a52b7b3b,
     type: 3}

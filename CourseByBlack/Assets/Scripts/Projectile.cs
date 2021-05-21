@@ -9,12 +9,14 @@ public class Projectile : MonoBehaviour
    public float lifetime;
    public GameObject effect;
    public int damage;
+    public float reduce;
+   
    private void Start() {
      target =  Camera.main.ScreenToWorldPoint(Input.mousePosition);
    }
    private void Update() {
        transform.position = Vector2.MoveTowards(transform.position,target,speed* Time.deltaTime);
-       if(Vector2.Distance(transform.position,target)< 0.2f){
+       if(Vector2.Distance(transform.position,target)< reduce){
             Instantiate(effect,transform.position,Quaternion.identity);
 
        Destroy(gameObject);
@@ -31,5 +33,13 @@ public class Projectile : MonoBehaviour
        Destroy(gameObject);
 
      }
-   }
+        if (other.CompareTag("Boss"))
+        {
+            other.GetComponent<Boss>().Takedamage(damage);
+            Instantiate(effect, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+
+        }
+    }
 }

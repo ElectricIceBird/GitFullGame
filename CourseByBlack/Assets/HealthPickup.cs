@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HealthPickup : MonoBehaviour
 {
     Playermovement platerscript;
+    public GameObject effect;
     public int healamount;
     private void Start()
     {
@@ -16,6 +17,7 @@ public class HealthPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
+            Instantiate(effect, transform.position, transform.rotation);
             platerscript.heal(healamount);
             Destroy(gameObject);
         }

@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: -43215720684864118
     second: BossParts_6
+  - first:
+      213: -1799248268986130567
+    second: BossParts_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -165,10 +168,10 @@ TextureImporter:
       name: BossParts_2
       rect:
         serializedVersion: 2
-        x: 992
+        x: 857
         y: 0
         width: 917
-        height: 471
+        height: 354
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,9 +189,9 @@ TextureImporter:
       name: BossParts_3
       rect:
         serializedVersion: 2
-        x: 1603
+        x: 1649
         y: 834
-        width: 317
+        width: 271
         height: 246
       alignment: 9
       pivot: {x: 0.6064838, y: 0.47255677}
@@ -262,6 +265,27 @@ TextureImporter:
       bones: []
       spriteID: a8dbddfe787766ff0800000000000000
       internalID: -43215720684864118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossParts_7
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 405
+        width: 304
+        height: 609
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f58507b39c707e0800000000000000
+      internalID: -1799248268986130567
       vertices: []
       indices: 
       edges: []

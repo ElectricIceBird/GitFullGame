@@ -25,6 +25,7 @@ public virtual void Start() {
 }
  public void Takedamage(int damage)
  {
+
   health -= damage;
   if(health <= 0)
   {
@@ -33,10 +34,10 @@ public virtual void Start() {
             if(Randomnumber < pickupChance) 
             {
                 GameObject randomPickup = WeaponPick[Random.Range(0, WeaponPick.Length)];
-                Instantiate(randomPickup,transform.position,transform.rotation);
+                Instantiate(randomPickup,transform.position,Quaternion.identity);
             }
             int HealthRandomNo = Random.Range(0, 101);
-            if (HealthRandomNo < pickupChance)
+            if (HealthRandomNo < healthpickupChance)
             {
               Instantiate(healthPickup, transform.position, transform.rotation);
             }

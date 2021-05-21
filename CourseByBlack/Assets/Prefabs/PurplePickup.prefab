@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPickup: {fileID: 371506842292601317, guid: 77a6659c50e967b4e9309c2bf1b16fc4,
     type: 3}
+  pickupEffect: {fileID: 8783653221124327600, guid: 4825f7615f2d2704d8f96835342b552b,
+    type: 3}
 --- !u!61 &3210741863773666404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +141,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c4b6c5d4038191a428a865c556887c12, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
