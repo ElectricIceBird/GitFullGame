@@ -40,5 +40,6 @@ public class RangedEnemy : Enemy
      Quaternion rotation = Quaternion.AngleAxis(angle - 90f,Vector3.forward);
      shotpoint.rotation = rotation;
      Instantiate(Bullet,shotpoint.position,shotpoint.rotation);
+
     }
 }

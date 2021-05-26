@@ -9,6 +9,17 @@ public class Boss : MonoBehaviour
     public int health;
     public float spawnoffset;
     public Enemy[] enes;
+    public AudioClip firing;
+    public AudioClip angry;
+
+    public AudioClip[] hurt;
+    public AudioClip summon;
+
+    public AudioSource source;
+    public AudioSource source2;
+    public AudioSource source3;
+
+
     private float halfHealth;
     public int damage;
     public GameObject bulls;
@@ -17,6 +28,12 @@ public class Boss : MonoBehaviour
     public float maxtime;
     public GameObject Dusteffect;
     public GameObject blood;
+    public float angletobeadded;
+    public float rotationangle;
+    Vector2 direction;
+    public Transform shotpoint;
+    public Transform player;
+
 
 
     // Start is called before the first frame update
@@ -25,10 +42,18 @@ public class Boss : MonoBehaviour
         timer = Random.Range(mintime, maxtime);
         halfHealth = health / 2f;
         anim = GetComponent<Animator>();
+        int randomNumbers = Random.Range(0, hurt.Length);
+        source.clip = hurt[randomNumbers];
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+
     }
     public void Firing() 
     {
-        Instantiate(bulls, transform.position , transform.rotation);
+        Instantiate(bulls, shotpoint.position, shotpoint.rotation);
+        source2.clip = firing;
+        source2.Play();
+
     }
     // Update is called once per frame
     void Update()
@@ -44,14 +69,20 @@ public class Boss : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-
-
+        if (player != null)
+        {
+            Vector2 direction = player.position - shotpoint.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+            shotpoint.rotation = rotation;
+        }
     }
    
     public void Takedamage(int damage)
     {
         health -= damage;
         anim.SetTrigger("Summon");
+        source.Play();
 
         if (health <= 0)
         {
@@ -66,6 +97,9 @@ public class Boss : MonoBehaviour
             mintime = 1;
             maxtime = 25;
             anim.SetTrigger("Fast");
+            source3.clip = angry;
+            source3.Play();
+            
         }
         Enemy randenem = enes[Random.Range(0, enes.Length)];
         Instantiate(randenem, transform.position + new Vector3(spawnoffset,spawnoffset,0), transform.rotation);

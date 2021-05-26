@@ -2876,8 +2876,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772865955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -3073,27 +3073,25 @@ MonoBehaviour:
   - enemies:
     - {fileID: 4952967056769445115, guid: 4d7d471d859ec7841a153093d6beaf62, type: 3}
     count: 4
+    timebtwSpawn: 3.18
+  - enemies:
+    - {fileID: 4952967056769445115, guid: 4d7d471d859ec7841a153093d6beaf62, type: 3}
+    count: 4
     timebtwSpawn: 3
   - enemies:
     - {fileID: 2058208002073464683, guid: 370d13979afbc7944b7347f895014950, type: 3}
-    count: 4
-    timebtwSpawn: 4
+    count: 5
+    timebtwSpawn: 4.25
   - enemies:
     - {fileID: 2537491558354286389, guid: 01494d619c0abb940b4a97088549b9af, type: 3}
     count: 5
-    timebtwSpawn: 5.93
+    timebtwSpawn: 3.75
   - enemies:
+    - {fileID: 4952967056769445115, guid: 4d7d471d859ec7841a153093d6beaf62, type: 3}
     - {fileID: 2058208002073464683, guid: 370d13979afbc7944b7347f895014950, type: 3}
     - {fileID: 2537491558354286389, guid: 01494d619c0abb940b4a97088549b9af, type: 3}
-    - {fileID: 4952967056769445115, guid: 4d7d471d859ec7841a153093d6beaf62, type: 3}
-    count: 6
-    timebtwSpawn: 5
-  - enemies:
-    - {fileID: 2058208002073464683, guid: 370d13979afbc7944b7347f895014950, type: 3}
-    - {fileID: 2537491558354286389, guid: 01494d619c0abb940b4a97088549b9af, type: 3}
-    - {fileID: 4952967056769445115, guid: 4d7d471d859ec7841a153093d6beaf62, type: 3}
-    count: 22
-    timebtwSpawn: 3.52
+    count: 15
+    timebtwSpawn: 4.67
   spawnPoints:
   - {fileID: 396697012}
   - {fileID: 1618722077}

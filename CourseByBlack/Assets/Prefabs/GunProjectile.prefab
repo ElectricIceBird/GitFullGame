@@ -183,6 +183,7 @@ MonoBehaviour:
     type: 3}
   pickupEffect: {fileID: 8783653221124327600, guid: d5cc788e3a4d8b3459d662241401853a,
     type: 3}
+  sfx: {fileID: 2936258773689624839, guid: 236d8304e38043e4eb9d358ffa1ec2c4, type: 3}
 --- !u!95 &6676001994197101607
 Animator:
   serializedVersion: 3

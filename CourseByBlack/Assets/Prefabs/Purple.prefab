@@ -264,5 +264,7 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   lifetime: 3
   effect: {fileID: 8783653221124327600, guid: 7b476ff50541757459675834e6642a22, type: 3}
+  soundeffect: {fileID: 3238118241430450740, guid: 115853e1289dc2944aab29fff739a707,
+    type: 3}
   damage: 1
   reduce: 2

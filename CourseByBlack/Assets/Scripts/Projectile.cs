@@ -8,7 +8,9 @@ public class Projectile : MonoBehaviour
    public Vector2 target;
    public float lifetime;
    public GameObject effect;
-   public int damage;
+    public GameObject soundeffect;
+
+    public int damage;
     public float reduce;
    
    private void Start() {
@@ -18,8 +20,10 @@ public class Projectile : MonoBehaviour
        transform.position = Vector2.MoveTowards(transform.position,target,speed* Time.deltaTime);
        if(Vector2.Distance(transform.position,target)< reduce){
             Instantiate(effect,transform.position,Quaternion.identity);
+            Instantiate(soundeffect, transform.position, Quaternion.identity);
 
-       Destroy(gameObject);
+
+            Destroy(gameObject);
            
        }
 
@@ -29,14 +33,16 @@ public class Projectile : MonoBehaviour
      {
        other.GetComponent<Enemy>().Takedamage(damage);
             Instantiate(effect,transform.position,Quaternion.identity);
+            Instantiate(soundeffect, transform.position, Quaternion.identity);
 
-       Destroy(gameObject);
+            Destroy(gameObject);
 
      }
         if (other.CompareTag("Boss"))
         {
             other.GetComponent<Boss>().Takedamage(damage);
             Instantiate(effect, transform.position, Quaternion.identity);
+            Instantiate(soundeffect, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
 

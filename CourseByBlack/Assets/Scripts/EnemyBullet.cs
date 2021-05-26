@@ -9,6 +9,7 @@ public class EnemyBullet : MonoBehaviour
     public float speed;
     public int damage;
     public GameObject effect;
+
     // Start is called before the first frame update
     void Start()
     {
