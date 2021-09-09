@@ -13,14 +13,14 @@ public class Coinrotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(20 * Time.deltaTime, 0,0);
+        transform.Rotate(50 * Time.deltaTime, 0,0);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             PlayerController.numbersofCoim += 1;
-            Debug.Log("Coin:" + PlayerController.numbersofCoim);
+          
             Destroy(this.gameObject);
         }
     }

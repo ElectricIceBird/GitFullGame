@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float maxSpeed;
-
+    public TextMeshProUGUI coinText;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        coinText.text = "Coin:" + numbersofCoim;
 
         direction.z = fowardspeed;
         if (controller.isGrounded)
