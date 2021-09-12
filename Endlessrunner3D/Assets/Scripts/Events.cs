@@ -9,7 +9,7 @@ public class Events : MonoBehaviour
     }
     public void ApplicationQuit()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("working");
     }
 }

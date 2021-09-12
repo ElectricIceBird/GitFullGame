@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Coinrotation : MonoBehaviour
 {
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,9 +21,11 @@ public class Coinrotation : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Playsound("PickUp");
+
             PlayerController.numbersofCoim += 1;
           
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

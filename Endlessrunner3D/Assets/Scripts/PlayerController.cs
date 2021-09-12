@@ -88,21 +88,21 @@ public class PlayerController : MonoBehaviour
         controller.center = controller.center;
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.20f, groundLayer);
         animator.SetBool("isGrounded", isGrounded);
-    }
-    private void FixedUpdate()
-    {
+
         if (!DisplayManager.isStarted)
             return;
         animator.SetBool("isGameStarted", true);
-        controller.Move(direction * Time.fixedDeltaTime);
+
+        controller.Move(direction * Time.deltaTime);
         if (fowardspeed < maxSpeed)
-        fowardspeed += 0.1f * Time.deltaTime;
+            fowardspeed += 0.1f * Time.deltaTime;
         animator.speed += 0.001f;
-           
-      
     }
+   
     void Jump()
     {
+        FindObjectOfType<AudioManager>().Playsound("Jump");
+
         direction.y = jumpForce;
 
     }
@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.transform.CompareTag("Enemy"))
         {
+            FindObjectOfType<AudioManager>().Playsound("Hurt");
             DisplayManager.gameover = true;
         }
     }
