@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Donut
   - Coffee
+  - Task
+  - Empol
+  - Wall
   layers:
   - Default
   - TransparentFX

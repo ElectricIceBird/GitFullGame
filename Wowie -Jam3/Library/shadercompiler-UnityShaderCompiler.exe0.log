@@ -2,8 +2,31 @@ Base path: 'C:/Program Files/Unity/Hub/Editor/2019.4.19f1/Editor/Data', plugins 
 Cmd: initializeCompiler
 Cmd: preprocessCompute
   insize=1953 outsize=1957 ok=1
-Cmd: compileComputeKernel
-  api=9 insize=1957 outsize=3556 ok=1
-Unhandled exception: Protocol error - unexpected end of data (did the Editor crash?)
-
-Quitting shader compiler process
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=771 outsize=196 ok=1
+Cmd: preprocess
+  insize=11979 outsize=892 ok=1
+Cmd: preprocess
+  insize=3428 outsize=520 ok=1
+Cmd: preprocess
+  insize=4081 outsize=527 ok=1
+Cmd: preprocess
+  insize=6091 outsize=524 ok=1
+Cmd: preprocess
+  insize=6409 outsize=521 ok=1

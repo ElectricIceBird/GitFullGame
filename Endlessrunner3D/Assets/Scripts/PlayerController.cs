@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float laneDistance = 4;
     public float jumpForce;
     public float Gravity = -20;
-    public Animator animator;
+    private Animator animator;
     private bool isSilding;
     public static int numbersofCoim;
     public bool isGrounded;
@@ -20,10 +20,30 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float maxSpeed;
     public TextMeshProUGUI coinText;
+    public Carselector cs;
+    public GameObject DH1;
+    public GameObject DH2;
+    public GameObject DH3;
+
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         numbersofCoim = 0;
+        if (cs.currentShopIndex == 0)
+        {
+            animator = DH1.GetComponent<Animator>();
+        }
+        else if (cs.currentShopIndex == 1) 
+        {
+            animator = DH2.GetComponent<Animator>();
+
+        }
+        else 
+        {
+            animator = DH3.GetComponent<Animator>();
+
+        }
     }
 
     // Update is called once per frame
