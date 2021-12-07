@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Coinrotation : MonoBehaviour
 {
-    
 
+    //public static int pemCoins;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,13 @@ public class Coinrotation : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerController.numbersofCoin += 1;
+
+            PlayerPrefs.GetInt("NumberOfCoins",PlayerController.numbersofCoin);
+            
+
             FindObjectOfType<AudioManager>().Playsound("PickUp");
 
-            PlayerController.numbersofCoim += 1;
           
             Destroy(gameObject);
         }

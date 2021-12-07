@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float Gravity = -20;
     private Animator animator;
     private bool isSilding;
-    public static int numbersofCoim;
+    public static int numbersofCoin;
     public bool isGrounded;
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        numbersofCoim = 0;
-        if (cs.currentShopIndex == 0)
+
+        /*if (cs.currentShopIndex == 0)
         {
             animator = DH1.GetComponent<Animator>();
         }
@@ -43,13 +43,31 @@ public class PlayerController : MonoBehaviour
         {
             animator = DH3.GetComponent<Animator>();
 
+        }*/
+        switch (cs.currentShopIndex) 
+        {
+            case 1:
+                {
+                    animator = DH2.GetComponent<Animator>();
+                    break;
+                }
+            case 2:
+                {
+                    animator = DH3.GetComponent<Animator>();
+                    break;
+                }
+            default:
+                {
+                    animator = DH1.GetComponent<Animator>();
+                    break;
+                }
         }
     }
-
+   
     // Update is called once per frame
     void Update()
     {
-        coinText.text = "Coin:" + numbersofCoim;
+        coinText.text = "Coin:" + numbersofCoin;
 
         direction.z = fowardspeed;
         if (controller.isGrounded)

@@ -13,8 +13,9 @@ public class MainMenu : MonoBehaviour
     public void Shop()
     {
         FindObjectOfType<AudioManager>().Playsound("Click");
-
+        Time.timeScale= 1;
         SceneManager.LoadScene("Shop");
+        
     }
     
 }
