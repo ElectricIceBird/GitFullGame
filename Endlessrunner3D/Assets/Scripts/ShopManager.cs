@@ -7,109 +7,107 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public int currentShopIndex;
-    public GameObject[] shopItems;
-    public DonoutBlueprint[] donuts;
-    public Button buyButton;
-    public Button StartButton;
+    public int currentdonutIndex = 0;
+    public GameObject[] donutModel;
+    public DonoutBlueprint[] donoutsBlup;
+    public Button buyBuyyon;
+    public Button StartBuyyon;
 
+    [SerializeField] int coin;
+    public TextMeshProUGUI coins;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        foreach(DonoutBlueprint donut in donuts) 
+        coin = PlayerPrefs.GetInt("NumberOfCoins", PlayerController.numbersofCoin);
+
+        foreach (DonoutBlueprint donut in donoutsBlup) 
         {
-            if(donut.price == 0) 
-            {
-                donut.isBought = true;
-            }
+            if(donut.price == 0) { donut.isBought = true; } 
             else 
             {
-                donut.isBought = PlayerPrefs.GetInt(donut.name, 0) == 0 ? false : true;
+                donut.isBought = PlayerPrefs.GetInt(donut.name, 0)==0? false:true;
             }
         }
-        currentShopIndex = PlayerPrefs.GetInt("Selecteditem", 0);
-     foreach(GameObject n in shopItems)
+        currentdonutIndex = PlayerPrefs.GetInt("SelectedDonut");
+        foreach (GameObject donut in donutModel) 
         {
-            n.SetActive(false);
-            shopItems[currentShopIndex].SetActive(true);
+            donut.SetActive(false);
+            donutModel[currentdonutIndex].SetActive(true);
         }   
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        coins.text = "Coins:" + coin.ToString();
+
         UpdateUI();
     }
-   public void changenext()
-    {
-        shopItems[currentShopIndex].SetActive(false);
-        currentShopIndex++;
-        if(currentShopIndex == shopItems.Length)
-        {
-            currentShopIndex = 0;
-        }
-        shopItems[currentShopIndex].SetActive(true);
 
-        PlayerPrefs.SetInt("Selecteditem", currentShopIndex);
-        DonoutBlueprint d = donuts[currentShopIndex];
+    public void ChangeNext() 
+    {
+        donutModel[currentdonutIndex].SetActive(false);
+        currentdonutIndex++;
+        if(currentdonutIndex == donutModel.Length)
+        {
+            currentdonutIndex = 0;
+        }
+        donutModel[currentdonutIndex].SetActive(true);
+        DonoutBlueprint d = donoutsBlup[currentdonutIndex];
         if (!d.isBought)
             return;
+        PlayerPrefs.SetInt("SelectedDonut", currentdonutIndex);
     }
-    public void changeback()
+    public void ChangeBack()
     {
-        shopItems[currentShopIndex].SetActive(false);
-        currentShopIndex--;
-        if (currentShopIndex <= -1)
+        donutModel[currentdonutIndex].SetActive(false);
+        currentdonutIndex--;
+        if (currentdonutIndex == -1)
         {
-            currentShopIndex = shopItems.Length -1;
+            currentdonutIndex = donutModel.Length -1;
         }
-        shopItems[currentShopIndex].SetActive(true);
-        PlayerPrefs.SetInt("Selecteditem", currentShopIndex);
-        DonoutBlueprint d = donuts[currentShopIndex];
-
+        donutModel[currentdonutIndex].SetActive(true);
+        DonoutBlueprint d = donoutsBlup[currentdonutIndex];
         if (!d.isBought)
             return;
-
+        PlayerPrefs.SetInt("SelectedDonut", currentdonutIndex);
     }
-   
-    private void UpdateUI() 
+    public void UnlockDonut()
     {
-        DonoutBlueprint d = donuts[currentShopIndex];
-        buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + d.price;
-
+        DonoutBlueprint d = donoutsBlup[currentdonutIndex];
+        PlayerPrefs.GetInt(d.name, 1);
+        PlayerPrefs.SetInt("SelectedDonut", currentdonutIndex);
+        d.isBought = true;
+        coin -= d.price;
+        PlayerPrefs.SetInt("NumberOfCoins", coin);
+    }
+    public void UpdateUI()
+    {
+        DonoutBlueprint d = donoutsBlup[currentdonutIndex];
         if (d.isBought) 
         {
-            buyButton.gameObject.SetActive(false);
+            buyBuyyon.gameObject.SetActive(false);
+            StartBuyyon.interactable = true;
 
         }
         else 
         {
-            buyButton.gameObject.SetActive(true);
-            if(d.price > PlayerPrefs.GetInt("NumberOfCoins", 0)) 
-            {
-                buyButton.interactable = true;
-                StartButton.interactable = false;
+            buyBuyyon.gameObject.SetActive(true);
+            buyBuyyon.GetComponentInChildren<TextMeshProUGUI>().text = "Buy-" + d.price;
 
+            if (d.price > coin) 
+            {
+                StartBuyyon.interactable = false;
+
+                buyBuyyon.interactable = false;
             }
-            else
+            else 
             {
-                buyButton.interactable = false;
-                buyButton.interactable = true;
+               StartBuyyon.interactable = false;
 
 
+                buyBuyyon.interactable = true;
 
             }
         }
-    }
-     public void unlockCar() 
-    {
-        DonoutBlueprint d = donuts[currentShopIndex];
-        PlayerPrefs.SetInt(d.name, 1);
-        d.isBought = true;
-        PlayerPrefs.SetInt("Selecteditem", currentShopIndex);
-        PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0) - d.price);
-        if (!d.isBought)
-            return;
+
     }
 }

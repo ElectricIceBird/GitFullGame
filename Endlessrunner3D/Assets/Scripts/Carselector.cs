@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Carselector : MonoBehaviour
 {
-    public int currentShopIndex;
+    public int currentdonutIndex;
     public GameObject[] donuts;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        currentShopIndex = PlayerPrefs.GetInt("Selecteditem", 0);
-        foreach (GameObject n in donuts)
+        currentdonutIndex = PlayerPrefs.GetInt("SelectedDonut");
+        foreach (GameObject donut in donuts)
         {
-            n.SetActive(false);
-            donuts[currentShopIndex].SetActive(true);
+            donut.SetActive(false);
+
+            donuts[currentdonutIndex].SetActive(true);
         }
     }
 

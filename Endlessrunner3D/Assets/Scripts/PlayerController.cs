@@ -5,6 +5,9 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    Vector3 transformXYZ;
+    [SerializeField] ParticleSystem SlideL,SlideR,Ju;
+    [SerializeField] GameObject GroundP;
     private CharacterController controller;
     private Vector3 direction;
     public float fowardspeed;
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
             animator = DH3.GetComponent<Animator>();
 
         }*/
-        switch (cs.currentShopIndex) 
+        switch (cs.currentdonutIndex) 
         {
             case 1:
                 {
@@ -67,11 +70,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transformXYZ = transform.localPosition;
+        numbersofCoin = PlayerPrefs.GetInt("NumberOfCoins");
         coinText.text = "Coin:" + numbersofCoin;
 
         direction.z = fowardspeed;
         if (controller.isGrounded)
         {
+            GroundP.SetActive(true);
             direction.y = -1;
             if (SwipeManager.swipeUp)
             {
@@ -116,10 +122,14 @@ public class PlayerController : MonoBehaviour
 
         if (diseredlane == 0)
         {
+           Instantiate(SlideL,transformXYZ,Quaternion.identity);
             targetPosition += Vector3.left * laneDistance;
         }
         else if(diseredlane == 2)
         {
+           Instantiate(SlideR,transformXYZ,Quaternion.identity);
+            
+
             targetPosition += Vector3.right * laneDistance;
         }
         transform.position = Vector3.Lerp(transform.position,targetPosition,80f * Time.fixedDeltaTime );
@@ -140,8 +150,11 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         FindObjectOfType<AudioManager>().Playsound("Jump");
+                  GroundP.SetActive(false);
 
         direction.y = jumpForce;
+
+        Instantiate(Ju,transformXYZ,Quaternion.identity);
 
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
