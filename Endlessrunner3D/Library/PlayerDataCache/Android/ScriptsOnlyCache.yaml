@@ -14,8 +14,6 @@ ScriptsOnlyBuild:
     - TitleManager
     - admanager
     - rotation
-    GoogleMobileAds.Common.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
     Unity.RenderPipelines.Core.Runtime.dll:
